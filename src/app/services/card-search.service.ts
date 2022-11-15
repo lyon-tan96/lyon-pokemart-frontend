@@ -32,17 +32,6 @@ export class CardSearchService {
 
       return firstValueFrom(this.http.get<CartItem[]>(`api/${username}/getCart`, {headers}))
     }
-
-    // searchStudentFee(data: any, pageNum: any): Observable<any> {
-    //     return this.http
-    //       .post<[]>(BASIC_URL + `api/search-fee/${pageNum}`, data, {
-    //         headers: this.createAuthorizationHeader(),
-    //       })
-    //       .pipe(
-    //         tap((_) => this.log('Fee fetched successfully')),
-    //         catchError(this.handleError<[]>('Error getting fee', []))
-    //       );
-    //   }
     
       createHttpHeader(): HttpHeaders {
         const headers = new HttpHeaders()
