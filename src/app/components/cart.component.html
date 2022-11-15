@@ -1,0 +1,139 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png"
+            height="32"
+            loading="lazy"
+          />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="orders" style="color: white;">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="cart" style="color: white;">Cart</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <a class="text-reset me-3" href="#">
+            <a class="nav-link" (click)="logout()" style="color: white;">Logout</a>
+        </a>
+        <!-- Avatar -->
+        <div class="dropdown">
+            <img
+            src="https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+              class="rounded-circle"
+              height="25"
+              loading="lazy"
+            />
+        </div>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+<div class="container px-3 my-5 clearfix">
+<!-- Shopping cart table -->
+<div class="card">
+    <div class="card-header">
+        <h2>Shopping Cart</h2>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered m-0">
+            <thead>
+                <tr>
+                <!-- Set columns width -->
+                <th class="text-center py-3 px-4" style="min-width: 40px;">No.</th>
+                <th class="text-center py-3 px-4" style="min-width: 400px;">Card Name &amp; Details</th>
+                <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
+                <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
+                <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr *ngFor="let i of itemsInCart; let n =index">
+                <td style="text-align: center">
+                    {{n+1}}
+                </td>
+                <td class="p-4">
+                    <div class="media align-items-center">
+                    <img src="{{i.image}}" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                    <div class="media-body">
+                        <a href="{{i.image}}" target="_blank" class="d-block text-dark">{{i.cardName}}</a>
+                        <small>
+                        <span class="text-muted">Card ID: </span> {{i.cardId}} &nbsp;
+                        <span class="text-muted">Ships from: </span> Japan <img width="10px" src="https://cdn-icons-png.flaticon.com/512/197/197604.png">
+                        </small>
+                    </div>
+                    </div>
+                </td>
+                <td class="text-right font-weight-semibold align-middle p-4">{{i.price}}</td>
+                <td class="text-right font-weight-semibold align-middle p-4">{{i.quantity}}</td>
+                <td class="text-center align-middle px-0"><button type="button" (click)="removeFromCart(i)" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</button></td>
+                </tr>
+    
+            </tbody>
+            </table>
+        </div>
+        <!-- / Shopping cart table -->
+    
+        <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
+            <div class="mt-4">
+            <label class="text-muted font-weight-normal">Promocode</label>
+            <input type="text" placeholder="ABC" class="form-control">
+            </div>
+            <div class="d-flex">
+            <div class="text-right mt-4 mr-5">
+                <label class="text-muted font-weight-normal m-0">Discount</label>
+                <div class="text-large"><strong>$0</strong></div>
+            </div>
+            <div class="text-right mt-4">
+                <label class="text-muted font-weight-normal m-0">Total price</label>
+                <div class="text-large"><strong>${{totalPrice}}</strong></div>
+            </div>
+            </div>
+        </div>
+        
+        <button type="button" class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
+
+        <div class="float-right">
+            <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3" (click)="backToSearch()">Back to shopping</button>
+            <button type="button" class="btn btn-lg btn-primary mt-2" [disabled]="itemsInCart.length < 1" (click)="checkout()">Checkout</button>
+        </div>
+    
+        </div>
+    </div>
+</div>

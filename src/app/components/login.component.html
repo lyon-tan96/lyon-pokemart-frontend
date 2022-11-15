@@ -1,0 +1,47 @@
+<!-- <h1>Login</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <table>
+        <tr>
+            <td>Email: </td>
+            <td>
+                <input type="text" formControlName="email">
+            </td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td>
+                <input type="password" formControlName="password">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" [disabled]="loginForm.invalid">Login</button>
+                <br>
+                <button type="button" (click)="goToRegister()">Register</button>
+            </td>
+        </tr>
+    </table>
+</form> -->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h2 class="active"> Sign In </h2>
+  
+      <div class="fadeIn first">
+        <img src="https://media4.giphy.com/media/FCffpN404oRZpFbSzl/giphy.gif" id="icon" alt="User Icon" />
+      </div>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <input type="text" id="login" class="fadeIn second" formControlName="email" placeholder="email">
+        <input type="password" class="fadeIn third" formControlName="password" placeholder="password">
+        <input type="submit" [disabled]="loginForm.invalid" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <div id="formFooter">
+        <a [routerLink]="register">New User</a>
+      </div>
+  
+    </div>
+  </div>

@@ -1,0 +1,32 @@
+{
+    "theme_color": "#8b572a",
+    "background_color": "#8b572a",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/",
+    "name": "My PokeMart",
+    "short_name": "PokeMart",
+    "description": "Purchase Pokemon TCG Cards",
+    "icons": [
+        {
+            "src": "/assets/Poké_Ball_icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/Poké_Ball_icon.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/Poké_Ball_icon.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/Poké_Ball_icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

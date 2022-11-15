@@ -1,0 +1,169 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png"
+            height="32"
+            loading="lazy"
+          />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="orders" style="color: white;">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="cart" style="color: white;">Cart</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <a class="text-reset me-3" href="#">
+            <a class="nav-link" (click)="logout()" style="color: white;">Logout</a>
+        </a>
+        <!-- Avatar -->
+        <div class="dropdown">
+            <img
+            src="https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+              class="rounded-circle"
+              height="25"
+              loading="lazy"
+            />
+        </div>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+<div class="container">
+    <div class="py-5 text-center">
+      
+      <h2>Checkout Form</h2>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Your cart</span>
+          <span class="badge badge-secondary badge-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let i of itemsInCart; let n =index">
+            <div>
+              <h6 class="my-0">{{n+1}}. {{i.cardName}}</h6>
+              <small class="text-muted">{{i.cardId}}</small>
+            </div>
+            <span class="text-muted">${{i.price}}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (SGD)</span>
+            <strong>${{totalPrice}}</strong>
+          </li>
+        </ul>
+  
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Billing address</h4>
+        <form class="needs-validation" [formGroup]="checkoutForm" (ngSubmit)="checkout()" novalidate>
+            <div class="mb-3">
+              <label for="firstName">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name" placeholder="John Doe" value="">
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="contact">Contact</label>
+                <input type="number" class="form-control" id="contact" formControlName="contact" placeholder="91234567" value="">
+              </div>
+              
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <label for="country">Country</label>
+                  <select class="custom-select d-block w-100" id="country" required>
+                    <option value="">Choose...</option>
+                    <option>Singapore</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="postal">Postal</label>
+                  <input type="text" class="form-control" formControlName="postal" id="postal" placeholder="" required>
+                  <button type="button" id="postal" (click)="getAddress()">Get Address</button>
+                  <div class="invalid-feedback">
+                    Postal code required.
+                  </div>
+                </div>
+              </div>
+    
+          <div class="mb-3">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" formControlName="address1" placeholder="1234 Main St" required>
+            <div class="invalid-feedback">
+              Please enter your shipping address.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="address2" formControlName="address2" placeholder="Apartment or suite">
+          </div>
+  
+          <div #mapContainer id="map" style="display: none;"></div>
+
+          <h4 class="mb-3">Payment</h4>
+  
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+              <label class="custom-control-label" for="credit">PayNow</label>
+            </div>
+          </div>
+          <div class="row">
+          </div>
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="checkoutForm.invalid">Continue to checkout</button>
+        </form>
+      </div>
+    </div>
+  
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© 2022 Pokemart</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
+  </div>

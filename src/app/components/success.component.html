@@ -1,0 +1,99 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png"
+            height="32"
+            loading="lazy"
+          />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="orders" style="color: white;">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="cart" style="color: white;">Cart</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <a class="text-reset me-3" href="#">
+            <a class="nav-link" (click)="logout()" style="color: white;">Logout</a>
+        </a>
+        <!-- Avatar -->
+        <div class="dropdown">
+            <img
+            src="https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+              class="rounded-circle"
+              height="25"
+              loading="lazy"
+            />
+        </div>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-4 mt-3">
+       <div class="first d-flex justify-content-between align-items-center mb-3">
+         <div class="info">
+             <span class="d-block name">Thank you, {{name}}!</span>
+             <span class="order"><strong>Order - {{orderId}}</strong></span>
+              
+         </div>
+        
+          <img src="https://i.imgur.com/NiAVkEw.png" width="40"/>
+           
+
+       </div>
+           <div class="detail">
+       <span class="d-block summery"><strong>Order received! An email regarding payment methods has been sent to your registered email.</strong></span>
+           </div>
+       <hr>
+       <div class="text">
+     <span class="d-block new mb-1" >{{name}}</span>
+      </div>
+     <span class="d-block address mb-3">{{address}}</span>
+       <div class="  money d-flex flex-row mt-2 align-items-center">
+         <img src="https://i.imgur.com/ppwgjMU.png" width="20" />
+     
+         <span class="ml-2">Status: Payment Pending</span> 
+
+            </div>
+            <div class="last d-flex align-items-center mt-3">
+                <button type="button" class="btn btn-success" (click)="viewOrder()">View Order(s)</button>
+            </div>
+     </div>
+ </div>
+
+ 

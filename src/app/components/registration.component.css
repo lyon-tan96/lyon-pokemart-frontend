@@ -1,0 +1,59 @@
+body {
+    font-family: "Inter";
+  }
+
+  label, button {
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  input, textarea {
+    border: 3px solid #eee;
+    padding: .4em 1em;
+    border-radius: 6px;
+  }
+
+  form {
+    display: grid;
+    grid-row-gap: 10px;
+    justify-content: center;
+  }
+
+  button {
+    margin-top: 10px;
+    background: orange;
+    color: #fff;
+    padding: 10px 0;
+    border: 0;
+    border-radius: 6px;
+  }
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+
+/* Material Customization */
+:root {
+  --pure-material-primary-rgb: 255, 191, 0;
+  --pure-material-onsurface-rgb: 0, 0, 0;
+}
+
+body {
+  background: url("http://i.imgur.com/auyVfNf.png");
+}
+
+.form-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.remember a {
+  text-decoration: none;
+  color: rgb(27, 148, 169);
+  font-style: bold;
+}
+

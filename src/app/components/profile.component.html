@@ -1,0 +1,99 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png"
+            height="32"
+            loading="lazy"
+          />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="orders" style="color: white;">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="cart" style="color: white;">Cart</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <a class="text-reset me-3" href="#">
+            <a class="nav-link" (click)="logout()" style="color: white;">Logout</a>
+        </a>
+        <!-- Avatar -->
+        <div class="dropdown">
+            <img
+            src="https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png"
+              class="rounded-circle"
+              height="25"
+              loading="lazy"
+            />
+        </div>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+<table class="zebra"> 
+    <col>
+    <col>
+    <col>
+    <col>
+    <thead> 
+    <tr> 
+        <th>No.</th>
+        <th>Order Id</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Delivery Address</th>
+        <th>Postal</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Date</th>
+    </tr> 
+    </thead> 
+    <tbody> 
+        <tr *ngFor="let u of userOrders; let n = index">
+            <td>{{n+1}}</td>
+            <td>
+                <a [routerLink]="[u.orderId]">{{u.orderId}}</a>
+            </td>
+            <td>{{u.name}}</td>
+            <td>{{u.contact}}</td>
+            <td>{{u.address}}</td>
+            <td>{{u.postal}}</td>
+            <td>{{u.amount}}</td>
+            <td>{{u.status}}</td>
+            <td>{{u.date}}</td>
+        </tr>
+    </tbody> 
+    </table> 

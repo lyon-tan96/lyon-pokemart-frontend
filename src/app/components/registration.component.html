@@ -1,0 +1,68 @@
+<!-- <h2>Registration</h2>
+
+<form [formGroup]="form" (ngSubmit)="register()">
+    <table>
+        <tr>
+            <td>Username: </td>
+            <td>
+                <input type="text" formControlName="username">
+            </td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>
+                <input type="text" formControlName="email">
+            </td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td>
+                <input type="password" formControlName="password">
+            </td>
+        </tr>
+        <tr>
+            <td>Profile Pic: </td>
+            <td>
+                <input type="file" formControlName="pic" #toUpload>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" (click)="backToLogin()">Back</button>
+            </td>
+            <td>
+                <button type="submit" [disabled]="form.invalid">Register!</button>
+            </td>
+        </tr>
+    </table>
+</form> -->
+
+
+
+<body>
+    <form [formGroup]="form" (ngSubmit)="register()">
+        <h1>Welcome!</h1>
+      <label for="email">Email Address</label>
+      <input type="text" id="email" formControlName="email">
+  
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username">
+  
+      <label for="message">Password</label>
+      <input type="password" formControlName="password">
+  
+      <label for="photo">Profile Pic</label>
+      <input type="file" id="photo" formControlName="pic" #toUpload>
+  
+      <button type="submit" [disabled]="form.invalid">Register!</button>
+
+      <div class="form-bottom">
+        <div class="remember">
+            <a href="#">Already Have Account ?</a>
+        </div>
+    </div>
+    </form>
+  </body>
+  <span></span>
+
+
